@@ -1,163 +1,185 @@
-/* RESET BÁSICO */
+/* Reset Básico e Variáveis */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: sans-serif;
-    background-color: #f4f4f4;
-    padding-top: 60px; /* Espaço para o header fixo */
+:root {
+    --cor-primaria: #007bff; /* Azul vibrante para botões e destaques */
+    --cor-secundaria: #6c757d; /* Cinza para textos secundários */
+    --cor-fundo: #f8f9fa; /* Fundo claro */
+    --cor-texto: #343a40; /* Texto escuro */
+    --cor-branco: #ffffff;
+    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* CABEÇALHO */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* -------------------- Cabeçalho -------------------- */
 header {
+    background-color: var(--cor-branco);
+    box-shadow: var(--sombra);
+    padding: 15px 0;
+    position: sticky; /* Fica fixo no topo ao rolar */
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
-    background-color: #222;
-    color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
 }
 
-#abrir-carrinho {
+header h1 {
+    color: var(--cor-primaria);
+    font-size: 1.8rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--cor-primaria);
+}
+
+.carrinho {
+    color: var(--cor-primaria) !important;
+}
+
+/* -------------------- Botões Gerais -------------------- */
+.btn {
+    display: inline-block;
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover, .btn-adicionar:hover {
+    background-color: #0056b3; /* Tom mais escuro do azul */
+    transform: translateY(-2px);
+}
+
+.btn-adicionar {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
     padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
 }
 
-/* VITRINE (CONTAINER) */
-#produtos-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 20px 5%;
-}
-
-/* CARTÃO DE PRODUTO */
-.produto-card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+/* -------------------- Banner -------------------- */
+.banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1200x400/007bff/ffffff?text=Promoção+Especial') no-repeat center center/cover;
+    color: var(--cor-branco);
+    padding: 60px 20px;
     text-align: center;
+    margin: 30px 0;
+    border-radius: 10px;
+}
+
+.banner h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.banner p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* -------------------- Produtos -------------------- */
+.produtos {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.produtos h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: var(--cor-primaria);
+}
+
+/* Grade de Cards */
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.produto-card {
+    background-color: var(--cor-branco);
     padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    text-align: center;
     transition: transform 0.3s;
 }
 
 .produto-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 
 .produto-card img {
     width: 100%;
     height: auto;
-    max-height: 200px;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-.produto-card h3 {
-    margin: 10px 0;
-    font-size: 1.2em;
-}
-
-.produto-card p.preco {
-    font-weight: bold;
-    color: #dc3545;
-    font-size: 1.5em;
+    border-radius: 4px;
     margin-bottom: 15px;
 }
 
-.adicionar-carrinho {
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.produto-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
 
-.adicionar-carrinho:hover {
-    background-color: #218838;
-}
-
-/* MODAL DO CARRINHO */
-.modal {
-    display: none; /* Escondido por padrão */
-    position: fixed;
-    z-index: 20;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4); /* Fundo escuro */
-}
-
-.modal-conteudo {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% do topo e centralizado */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 10px;
-    position: relative;
-}
-
-.fechar-modal {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
+.preco {
+    color: #dc3545; /* Cor de preço em destaque (vermelho) */
+    font-size: 1.3rem;
     font-weight: bold;
+    margin-bottom: 15px;
 }
 
-.fechar-modal:hover,
-.fechar-modal:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#lista-carrinho {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
-}
-
-#lista-carrinho li {
-    padding: 10px 0;
-    border-bottom: 1px dashed #eee;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#finalizar-compra {
-    width: 100%;
-    padding: 15px;
-    background-color: #ffc107;
-    color: #212529;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-#finalizar-compra:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+/* -------------------- Rodapé -------------------- */
+footer {
+    background-color: var(--cor-texto);
+    color: var(--cor-branco);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
 }
