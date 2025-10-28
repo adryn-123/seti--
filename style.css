@@ -1,3 +1,4 @@
+
 /* Reset Básico e Variáveis */
 * {
     margin: 0;
@@ -6,12 +7,12 @@
 }
 
 :root {
-    --cor-primaria: #007bff; /* Azul vibrante para botões e destaques */
-    --cor-secundaria: #6c757d; /* Cinza para textos secundários */
-    --cor-fundo: #f8f9fa; /* Fundo claro */
-    --cor-texto: #343a40; /* Texto escuro */
+    --cor-primaria: #610101; /* Azul vibrante para botões e destaques */
+    --cor-secundaria: #ffffff; /* Cinza para textos secundários */
+    --cor-fundo: #141414; /* Fundo claro */
+    --cor-texto: #000000; /* Texto escuro */
     --cor-branco: #ffffff;
-    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --sombra: 0 4px 6px rgba(22, 0, 0, 0.1);
 }
 
 body {
@@ -183,3 +184,4 @@ footer {
     padding: 20px 0;
     margin-top: 50px;
 }
+
